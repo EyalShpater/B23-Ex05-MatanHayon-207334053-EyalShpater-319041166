@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsUI", "WindowsUI\WindowsUI.csproj", "{45DBC454-E25A-4111-B1A0-8DAADBE203D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe", "TicTacToe\TicTacToe.csproj", "{701FCF97-6C02-4D7D-A1AB-2B1F0B9A22B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{701FCF97-6C02-4D7D-A1AB-2B1F0B9A22B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{701FCF97-6C02-4D7D-A1AB-2B1F0B9A22B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{701FCF97-6C02-4D7D-A1AB-2B1F0B9A22B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{701FCF97-6C02-4D7D-A1AB-2B1F0B9A22B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45DBC454-E25A-4111-B1A0-8DAADBE203D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45DBC454-E25A-4111-B1A0-8DAADBE203D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45DBC454-E25A-4111-B1A0-8DAADBE203D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45DBC454-E25A-4111-B1A0-8DAADBE203D5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {938F4219-F207-4E23-813B-692DAE361E42}
+	EndGlobalSection
+EndGlobal
