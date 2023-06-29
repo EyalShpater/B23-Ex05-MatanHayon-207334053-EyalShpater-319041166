@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using TicTacToe;
 
 namespace WindowsUI
 {
@@ -27,13 +28,13 @@ namespace WindowsUI
 
             if (checkBox.Checked)
             {
-                textBoxPlayer2.Enabled = true;
-                textBoxPlayer2.Text = string.Empty;
+                textBoxPlayer2Name.Enabled = true;
+                textBoxPlayer2Name.Text = string.Empty;
             }
             else
             {
-                textBoxPlayer2.Enabled = false;
-                textBoxPlayer2.Text = "[Computer]";
+                textBoxPlayer2Name.Enabled = false;
+                textBoxPlayer2Name.Text = "[Computer]";
             }
         }
 
@@ -53,9 +54,9 @@ namespace WindowsUI
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
-            if (textBoxPlayer1Name.Text != string.Empty && textBoxPlayer2.Text != string.Empty)
+            if (textBoxPlayer1Name.Text != string.Empty && textBoxPlayer2Name.Text != string.Empty)
             {
-                FormTicTacToeMisere ticTacToeForm = new FormTicTacToeMisere((int)numericUpDownRows.Value, checkBoxPlayer2.Checked);
+                FormTicTacToeMisere ticTacToeForm = new FormTicTacToeMisere(initiateGameFromForm());
 
                 this.Visible = false;
                 ticTacToeForm.ShowDialog();
@@ -64,6 +65,16 @@ namespace WindowsUI
             {
                 MessageBox.Show("Names cannot be empty!");
             }
+        }
+
+        private Game initiateGameFromForm()
+        {
+            Game game = new Game((int)numericUpDownCols.Value, checkBoxPlayer2.Checked);
+
+            game.Player1Name = textBoxPlayer1Name.Text;
+            game.Player2Name = checkBoxPlayer2.Checked ? textBoxPlayer2Name.Text : "Computer";
+
+            return game;
         }
     }
 }

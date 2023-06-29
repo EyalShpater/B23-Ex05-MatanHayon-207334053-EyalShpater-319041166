@@ -32,7 +32,7 @@
             this.labelPlayer1 = new System.Windows.Forms.Label();
             this.textBoxPlayer1Name = new System.Windows.Forms.TextBox();
             this.checkBoxPlayer2 = new System.Windows.Forms.CheckBox();
-            this.textBoxPlayer2 = new System.Windows.Forms.TextBox();
+            this.textBoxPlayer2Name = new System.Windows.Forms.TextBox();
             this.labelBoardSize = new System.Windows.Forms.Label();
             this.numericUpDownRows = new System.Windows.Forms.NumericUpDown();
             this.labelRows = new System.Windows.Forms.Label();
@@ -79,14 +79,14 @@
             this.checkBoxPlayer2.UseVisualStyleBackColor = true;
             this.checkBoxPlayer2.CheckedChanged += new System.EventHandler(this.checkBoxPlayer2_CheckedChanged);
             // 
-            // textBoxPlayer2
+            // textBoxPlayer2Name
             // 
-            this.textBoxPlayer2.Enabled = false;
-            this.textBoxPlayer2.Location = new System.Drawing.Point(271, 130);
-            this.textBoxPlayer2.Name = "textBoxPlayer2";
-            this.textBoxPlayer2.Size = new System.Drawing.Size(206, 31);
-            this.textBoxPlayer2.TabIndex = 4;
-            this.textBoxPlayer2.Text = "[Computer]";
+            this.textBoxPlayer2Name.Enabled = false;
+            this.textBoxPlayer2Name.Location = new System.Drawing.Point(271, 130);
+            this.textBoxPlayer2Name.Name = "textBoxPlayer2Name";
+            this.textBoxPlayer2Name.Size = new System.Drawing.Size(206, 31);
+            this.textBoxPlayer2Name.TabIndex = 4;
+            this.textBoxPlayer2Name.Text = "[Computer]";
             // 
             // labelBoardSize
             // 
@@ -180,7 +180,7 @@
             this.Controls.Add(this.numericUpDownCols);
             this.Controls.Add(this.numericUpDownRows);
             this.Controls.Add(this.checkBoxPlayer2);
-            this.Controls.Add(this.textBoxPlayer2);
+            this.Controls.Add(this.textBoxPlayer2Name);
             this.Controls.Add(this.labelCols);
             this.Controls.Add(this.labelRows);
             this.Controls.Add(this.labelBoardSize);
@@ -207,7 +207,7 @@
         private System.Windows.Forms.Label labelPlayer1;
         private System.Windows.Forms.TextBox textBoxPlayer1Name;
         private System.Windows.Forms.CheckBox checkBoxPlayer2;
-        private System.Windows.Forms.TextBox textBoxPlayer2;
+        private System.Windows.Forms.TextBox textBoxPlayer2Name;
         private System.Windows.Forms.Label labelBoardSize;
         private System.Windows.Forms.NumericUpDown numericUpDownRows;
         private System.Windows.Forms.Label labelRows;

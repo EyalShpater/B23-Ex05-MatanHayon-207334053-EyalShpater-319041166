@@ -63,6 +63,32 @@ namespace TicTacToe
             }
         }
 
+        public string Player1Name
+        {
+            get
+            {
+                return m_Player1.Name;
+            }
+
+            set 
+            {
+                m_Player1.Name = value;
+            }
+        }
+
+        public string Player2Name
+        {
+            get
+            {
+                return m_Player2.Name;
+            }
+
+            set
+            {
+                m_Player2.Name = value;
+            }
+        }
+
         public Board.eSquareValue GetSignByCoordinates(int i_X, int i_Y)
         {
             return m_Board.GetSquareValue(i_X, i_Y);
