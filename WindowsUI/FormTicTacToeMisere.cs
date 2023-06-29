@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace WindowsUI
 {
-    public partial class Form1 : Form
+    public partial class FormTicTacToeMisere : Form
     {
-        public Form1()
+        public FormTicTacToeMisere()
         {
             InitializeComponent();
         }

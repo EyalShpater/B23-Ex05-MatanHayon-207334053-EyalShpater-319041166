@@ -9,6 +9,8 @@ namespace TicTacToe
         private Player m_Player2;
         private Player m_CurrentPlayerTurn;
         private Player m_GameWinner;
+        public const int k_MinBoardSize = 3;
+        public const int k_MaxBoardSize = 9;
 
         public Game(int i_BoardSize, bool i_IsTwoPlayerGame)
         {
