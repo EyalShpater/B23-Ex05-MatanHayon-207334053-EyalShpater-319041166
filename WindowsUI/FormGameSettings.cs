@@ -53,8 +53,17 @@ namespace WindowsUI
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            if (textBoxPlayer1Name.Text != string.Empty && textBoxPlayer2.Text != string.Empty)
+            {
+                FormTicTacToeMisere ticTacToeForm = new FormTicTacToeMisere((int)numericUpDownRows.Value, checkBoxPlayer2.Checked);
 
+                this.Visible = false;
+                ticTacToeForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Names cannot be empty!");
+            }
         }
     }
 }

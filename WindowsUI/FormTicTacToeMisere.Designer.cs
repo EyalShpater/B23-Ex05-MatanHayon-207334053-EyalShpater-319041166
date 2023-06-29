@@ -1,4 +1,6 @@
-﻿namespace WindowsUI
+﻿using System.Windows.Forms;
+
+namespace WindowsUI
 {
     partial class FormTicTacToeMisere
     {
@@ -28,10 +30,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            int windowWidth = m_Game.BoardSize * k_ButtonSize + 2 * k_ButtonSpaceing;
+            int windowHeight = windowWidth + 4 * k_ButtonSpaceing;
+
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FormTicTacToeMisere";
+            this.ClientSize = new System.Drawing.Size(windowWidth, windowHeight);
+            this.Name = "FormTicTacToeMisere";
+            this.Text = "TicTacToeMisere";
+            buildButtonMatrix(m_Game.BoardSize);
+            this.ResumeLayout(false);
+
+        }
+
+        private void buildButtonMatrix(int i_Size)
+        {
+            for (int i = 0; i < i_Size; i++)
+            {
+                for(int j = 0; j < i_Size; j++) 
+                {
+                    this.Controls.Add(createButtonForMatrix(i, j));
+                }
+            }
+        }
+
+        private Button createButtonForMatrix(int i_X, int i_Y)
+        {
+            Button button = new Button();
+
+            button.Location = new System.Drawing.Point(k_ButtonSize * i_X + k_ButtonSpaceing, k_ButtonSize * i_Y + k_ButtonSpaceing);
+            button.Name = string.Format("{0} {1}", i_X, i_Y);
+            button.Size = new System.Drawing.Size(k_ButtonSize, k_ButtonSize);
+            button.Text = string.Empty;
+            button.UseVisualStyleBackColor = true;
+            button.Visible = true;
+
+            return button;
         }
 
         #endregion

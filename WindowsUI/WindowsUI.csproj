@@ -50,10 +50,19 @@
     <Compile Include="FormGameSettings.Designer.cs">
       <DependentUpon>FormGameSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTicTacToeMisere.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTicTacToeMisere.Designer.cs">
+      <DependentUpon>FormTicTacToeMisere.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormGameSettings.resx">
       <DependentUpon>FormGameSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTicTacToeMisere.resx">
+      <DependentUpon>FormTicTacToeMisere.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -1,4 +1,6 @@
-﻿namespace TicTacToe
+﻿using System;
+
+namespace TicTacToe
 {
     public class Player
     {
@@ -11,6 +13,7 @@
 
         private readonly ePlayerId r_Id;
         private int m_Score;
+        private string m_Name;
 
         internal Player(ePlayerId i_Id)
         {
@@ -33,6 +36,26 @@
             set 
             { 
                 m_Score = value; 
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return m_Name;
+            }
+
+            set
+            {
+                if (value != string.Empty)
+                {
+                    m_Name = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Name cannot be empty!");
+                }
             }
         }
     }
