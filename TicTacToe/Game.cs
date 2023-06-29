@@ -113,7 +113,7 @@ namespace TicTacToe
 
             if (successMark)
             {      
-                switchBetweenCurrentPlayer();
+                switchBetweenCurrentPlayerTurn();
                 if (isSequance(i_X, i_Y))
                 {
                     m_GameWinner = m_CurrentPlayerTurn;
@@ -124,7 +124,7 @@ namespace TicTacToe
             return successMark;
         }
 
-        public void PlayAsComputer()
+        public void PlayAsComputer(out int computerX, out int computerY)
         {
             int x, y;
             Random rand = new Random();
@@ -136,7 +136,11 @@ namespace TicTacToe
                 y = rand.Next(m_Board.Size);
                 succeedToMark = MarkSquare(x, y);
             } while (!succeedToMark);
+
+            computerX = x;
+            computerY = y;
         }
+
 
         public bool IsGameOver()
         {
@@ -148,7 +152,7 @@ namespace TicTacToe
             return m_Board.AreAllSquaresMarked() && !hasWinner();
         }
 
-        private void switchBetweenCurrentPlayer()
+        private void switchBetweenCurrentPlayerTurn()
         {
             bool isCurrentPlayerIsOne = m_CurrentPlayerTurn == m_Player1;
 

@@ -12,6 +12,7 @@ namespace WindowsUI
 {
     public partial class FormGameSettings : Form
     {
+        const int k_MaxNameLength = 10;
         public FormGameSettings()
         {
             InitializeComponent();
@@ -19,7 +20,7 @@ namespace WindowsUI
 
         private void FormGameSettings_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void checkBoxPlayer2_CheckedChanged(object sender, EventArgs e)
@@ -54,18 +55,24 @@ namespace WindowsUI
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
-            if (textBoxPlayer1Name.Text != string.Empty && textBoxPlayer2Name.Text != string.Empty)
+            if (textBoxPlayer1Name.Text == string.Empty || textBoxPlayer2Name.Text == string.Empty)
+            {
+                MessageBox.Show("Names shouldn't be empty!");
+            }
+            else if (textBoxPlayer1Name.Text.Length > k_MaxNameLength || textBoxPlayer2Name.Text.Length > k_MaxNameLength)
+            {
+                MessageBox.Show($"Names max length should be {k_MaxNameLength} !");
+            }
+            else
             {
                 FormTicTacToeMisere ticTacToeForm = new FormTicTacToeMisere(initiateGameFromForm());
 
                 this.Visible = false;
                 ticTacToeForm.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Names cannot be empty!");
+                this.Close();
             }
         }
+
 
         private Game initiateGameFromForm()
         {
