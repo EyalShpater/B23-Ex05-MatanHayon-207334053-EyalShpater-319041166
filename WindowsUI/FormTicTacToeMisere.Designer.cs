@@ -64,11 +64,7 @@ namespace WindowsUI
             this.Text = "TicTacToeMisere";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
-
-
-
 
         #endregion
 

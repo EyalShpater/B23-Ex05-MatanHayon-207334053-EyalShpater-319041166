@@ -20,9 +20,9 @@ namespace WindowsUI
         const string k_Player2Sign = "O";
         private Button[,] m_Buttons;
 
-        public FormTicTacToeMisere(Game game)
+        public FormTicTacToeMisere(Game i_Game)
         {
-            m_Game = game;
+            m_Game = i_Game;
             InitializeComponent();
             initiateFormByChosenBoardSize();
         }
@@ -30,7 +30,6 @@ namespace WindowsUI
         private void initiateFormByChosenBoardSize() 
         {
             updatePlayersNameLabel();
-
             buildButtonMatrix(m_Game.BoardSize);
             this.ResumeLayout(false);
         }
@@ -39,8 +38,8 @@ namespace WindowsUI
         {
             int windowWidth = m_Game.BoardSize * k_ButtonSize + 2 * k_ButtonSpacing;
             int windowHeight = windowWidth + 2 * k_ButtonSpacing;
-
             int labelsWidth = i_LabelPlayer1.Width + i_LabelPlayer2.Width;
+
             if (labelsWidth > windowWidth)
             {
                 windowWidth = labelsWidth + 2 * k_ButtonSpacing;
@@ -52,7 +51,6 @@ namespace WindowsUI
         private void buildButtonMatrix(int i_Size)
         {
             m_Buttons = new Button[i_Size, i_Size];
-
             for (int i = 0; i < i_Size; i++)
             {
                 for (int j = 0; j < i_Size; j++)
@@ -68,12 +66,13 @@ namespace WindowsUI
         {
             Button button = new Button();
 
-            button.Location = new System.Drawing.Point(k_ButtonSize * i_X + k_ButtonSpacing, k_ButtonSize * i_Y + k_ButtonSpacing);
+            button.Location = new Point(k_ButtonSize * i_X + k_ButtonSpacing, k_ButtonSize * i_Y + k_ButtonSpacing);
             button.Name = string.Format("{0} {1}", i_X, i_Y);
-            button.Size = new System.Drawing.Size(k_ButtonSize, k_ButtonSize);
+            button.Size = new Size(k_ButtonSize, k_ButtonSize);
             button.Text = string.Empty;
             button.UseVisualStyleBackColor = true;
             button.Visible = true;
+            button.TabStop = false;
             button.Click += buttonMatrix_Click;
 
             return button;
@@ -88,10 +87,8 @@ namespace WindowsUI
 
             clickedButton.Enabled = false;
             clickedButton.Text = m_Game.CurrentPlayerTurn.Id == Player.ePlayerId.Player1 ? k_Player1Sign : k_Player2Sign;
-
             m_Game.MarkSquare(x, y);
             handleGameOver();
-
             if (m_Game.IsComputerTurn())
             {
                 playComputerTurn();
@@ -170,19 +167,18 @@ Do you want to restart the game?", "Game Over", MessageBoxButtons.YesNo, Message
 
         private void updatePlayersNameLabel()
         {
+            int labelPlayer1Top, labelPlayer1Left;
+            int labelPlayer2Top, labelPlayer2Left;
+
             labelPlayer1.Text = string.Format("{0}: {1}", m_Game.Player1Name, m_Game.Player1Score);
             labelPlayer2.Text = string.Format("{0}: {1}", m_Game.Player2Name, m_Game.Player2Score);
-
             setWindowSize(labelPlayer1, labelPlayer2);
-
-            int labelPlayer1Top = m_Game.BoardSize * k_ButtonSize + (this.ClientSize.Height - m_Game.BoardSize * k_ButtonSize) / 2;
-            int labelPlayer1Left = (this.ClientSize.Width - labelPlayer1.Size.Width - labelPlayer2.Size.Width - k_ButtonSpacing) / 2; 
+            labelPlayer1Top = m_Game.BoardSize * k_ButtonSize + (this.ClientSize.Height - m_Game.BoardSize * k_ButtonSize) / 2;
+            labelPlayer1Left = (this.ClientSize.Width - labelPlayer1.Size.Width - labelPlayer2.Size.Width - k_ButtonSpacing) / 2; 
             labelPlayer1.Location = new Point(labelPlayer1Left, labelPlayer1Top);
-
-            int labelPlayer2Top = labelPlayer1Top;
-            int labelPlayer2Left = labelPlayer1Left + labelPlayer1.Size.Width + k_ButtonSpacing;
+            labelPlayer2Top = labelPlayer1Top;
+            labelPlayer2Left = labelPlayer1Left + labelPlayer1.Size.Width + k_ButtonSpacing;
             labelPlayer2.Location = new Point(labelPlayer2Left, labelPlayer2Top);
-
             updateLabelsBoldByTurn();
         }
 
@@ -190,7 +186,6 @@ Do you want to restart the game?", "Game Over", MessageBoxButtons.YesNo, Message
         {
             labelPlayer1.Font = new Font(labelPlayer1.Font, FontStyle.Regular);
             labelPlayer2.Font = new Font(labelPlayer2.Font, FontStyle.Regular);
-
             if (m_Game.CurrentPlayerTurn.Id == Player.ePlayerId.Player1)
             {
                 labelPlayer1.Font = new Font(labelPlayer1.Font, FontStyle.Bold);

@@ -101,12 +101,12 @@
             // 
             this.numericUpDownRows.Location = new System.Drawing.Point(168, 269);
             this.numericUpDownRows.Maximum = new decimal(new int[] {
-            9,
+            10,
             0,
             0,
             0});
             this.numericUpDownRows.Minimum = new decimal(new int[] {
-            3,
+            4,
             0,
             0,
             0});
@@ -114,7 +114,7 @@
             this.numericUpDownRows.Size = new System.Drawing.Size(66, 31);
             this.numericUpDownRows.TabIndex = 5;
             this.numericUpDownRows.Value = new decimal(new int[] {
-            3,
+            4,
             0,
             0,
             0});
@@ -142,12 +142,12 @@
             // 
             this.numericUpDownCols.Location = new System.Drawing.Point(333, 269);
             this.numericUpDownCols.Maximum = new decimal(new int[] {
-            9,
+            10,
             0,
             0,
             0});
             this.numericUpDownCols.Minimum = new decimal(new int[] {
-            3,
+            4,
             0,
             0,
             0});
@@ -155,7 +155,7 @@
             this.numericUpDownCols.Size = new System.Drawing.Size(66, 31);
             this.numericUpDownCols.TabIndex = 6;
             this.numericUpDownCols.Value = new decimal(new int[] {
-            3,
+            4,
             0,
             0,
             0});
@@ -163,6 +163,7 @@
             // 
             // buttonStart
             // 
+            this.buttonStart.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.buttonStart.Location = new System.Drawing.Point(52, 352);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(425, 46);
@@ -173,6 +174,7 @@
             // 
             // FormGameSettings
             // 
+            this.AcceptButton = this.buttonStart;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 441);
