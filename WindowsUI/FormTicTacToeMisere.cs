@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-
 using TicTacToe;
 
 namespace WindowsUI
@@ -45,7 +39,7 @@ namespace WindowsUI
                 windowWidth = labelsWidth + 2 * k_ButtonSpacing;
             }
 
-            this.ClientSize = new System.Drawing.Size(windowWidth, windowHeight);
+            this.ClientSize = new Size(windowWidth, windowHeight);
         }
 
         private void buildButtonMatrix(int i_Size)
@@ -80,16 +74,17 @@ namespace WindowsUI
 
         private void buttonMatrix_Click(object sender, EventArgs e)
         {
+            bool isGameOver;
             Button clickedButton = (Button)sender;
             string[] coordinates = clickedButton.Name.Split(' ');
             int x = int.Parse(coordinates[0]);
-            int y = int.Parse(coordinates[1]);
+            int y = int.Parse(coordinates[1]);  
 
             clickedButton.Enabled = false;
             clickedButton.Text = m_Game.CurrentPlayerTurn.Id == Player.ePlayerId.Player1 ? k_Player1Sign : k_Player2Sign;
             m_Game.MarkSquare(x, y);
-            handleGameOver();
-            if (m_Game.IsComputerTurn())
+            isGameOver = checkIfGameOver();
+            if (m_Game.IsComputerTurn() && !isGameOver)
             {
                 playComputerTurn();
             }
@@ -99,24 +94,28 @@ namespace WindowsUI
 
         private void playComputerTurn()
         {
-            m_Game.PlayAsComputer(out int computerX, out int computerY);
-            Button computerButton = m_Buttons[computerX, computerY];
+            Button computerButton;
 
+            m_Game.PlayAsComputer(out int computerX, out int computerY);
+            computerButton = m_Buttons[computerX, computerY];
             computerButton.Enabled = false;
             computerButton.Text = k_Player2Sign;
-
             if (m_Game.IsGameOver())
             {
                 gameOverSequence();
             }
         }
 
-        private void handleGameOver()
+        private bool checkIfGameOver()
         {
-            if (m_Game.IsGameOver())
+            bool isGameOver = m_Game.IsGameOver();
+
+            if (isGameOver)
             {
                 gameOverSequence();
             }
+
+            return isGameOver;
         }
 
         private void gameOverSequence()
@@ -140,7 +139,8 @@ namespace WindowsUI
             }
 
             DialogResult result = MessageBox.Show(message + @"
-Do you want to restart the game?", "Game Over", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+Do you want to restart the game?", "Game Over", MessageBoxButtons.YesNo);
+
             if (result == DialogResult.Yes)
             {
                 restartGame();

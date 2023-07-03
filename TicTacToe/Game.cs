@@ -122,7 +122,7 @@ namespace TicTacToe
             return successMark;
         }
 
-        public void PlayAsComputer(out int computerX, out int computerY)
+        public void PlayAsComputer(out int o_ComputerX, out int o_ComputerY)
         {
             int x, y;
             Random rand = new Random();
@@ -135,8 +135,8 @@ namespace TicTacToe
                 succeedToMark = MarkSquare(x, y);
             } while (!succeedToMark);
 
-            computerX = x;
-            computerY = y;
+            o_ComputerX = x;
+            o_ComputerY = y;
         }
 
 
