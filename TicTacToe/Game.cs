@@ -112,7 +112,7 @@ namespace TicTacToe
             if (successMark)
             {      
                 switchBetweenCurrentPlayerTurn();
-                if (isSequance(i_X, i_Y))
+                if (isSequence(i_X, i_Y))
                 {
                     m_GameWinner = m_CurrentPlayerTurn;
                     m_GameWinner.Score++;
@@ -178,12 +178,12 @@ namespace TicTacToe
             return m_GameWinner != null;
         }
 
-        private bool isSequance(int i_X, int i_Y)
+        private bool isSequence(int i_X, int i_Y)
         {
-            return checkSequanceInDiagonal() || checkAntiDiagonal() || checkSequanceInRow(i_X) || checkSequanceInColumn(i_Y);
+            return checkSequenceInDiagonal() || checkAntiDiagonal() || checkSequenceInRow(i_X) || checkSequenceInColumn(i_Y);
         }
 
-        private bool checkSequanceInRow(int i_Row) 
+        private bool checkSequenceInRow(int i_Row) 
         {
             Board.eSquareValue sign = m_Board.GetSquareValue(i_Row, 0);
             bool isAllRowTheSameSign = (sign != Board.eSquareValue.Empty);
@@ -199,7 +199,7 @@ namespace TicTacToe
             return isAllRowTheSameSign;
         }
 
-        private bool checkSequanceInColumn(int i_Col)
+        private bool checkSequenceInColumn(int i_Col)
         {
             Board.eSquareValue sign = m_Board.GetSquareValue(0, i_Col);
             bool isAllColumnTheSameSign = (sign != Board.eSquareValue.Empty);
@@ -215,7 +215,7 @@ namespace TicTacToe
             return isAllColumnTheSameSign;
         }
 
-        private bool checkSequanceInDiagonal()
+        private bool checkSequenceInDiagonal()
         {
             Board.eSquareValue sign = m_Board.GetSquareValue(0, 0);
             bool isAllDiagTheSameSign = (sign != Board.eSquareValue.Empty);

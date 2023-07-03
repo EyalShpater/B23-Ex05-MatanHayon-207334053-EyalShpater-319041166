@@ -46,8 +46,8 @@ namespace WindowsUI
             }
 
             this.ClientSize = new System.Drawing.Size(windowWidth, windowHeight);
-
         }
+
         private void buildButtonMatrix(int i_Size)
         {
             m_Buttons = new Button[i_Size, i_Size];
@@ -126,21 +126,21 @@ namespace WindowsUI
 
             labelPlayer1.Text = $"{m_Game.Player1Name}:{m_Game.Player1Score}";
             labelPlayer2.Text = $"{m_Game.Player2Name}:{m_Game.Player2Score}";
-
             if (m_Game.IsDraw())
             {
                 message = "It's a draw!";
             }
             else
             {
+                string winnerName; 
+
                 winner = m_Game.Winner;
-                string winningPlayerName = winner.Id == Player.ePlayerId.Player1 ? m_Game.Player1Name : m_Game.Player2Name;
-                message = $"The winner is {winningPlayerName}!";
+                winnerName = winner.Id == Player.ePlayerId.Player1 ? m_Game.Player1Name : m_Game.Player2Name;
+                message = $"The winner is {winnerName}!";
             }
 
             DialogResult result = MessageBox.Show(message + @"
 Do you want to restart the game?", "Game Over", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
             if (result == DialogResult.Yes)
             {
                 restartGame();
@@ -161,6 +161,7 @@ Do you want to restart the game?", "Game Over", MessageBoxButtons.YesNo, Message
                     button.Text = string.Empty;
                 }
             }
+
             m_Game.InitGame();
             updateLabelsBoldByTurn();
         }
@@ -197,6 +198,5 @@ Do you want to restart the game?", "Game Over", MessageBoxButtons.YesNo, Message
                 labelPlayer1.Font = new Font(labelPlayer1.Font, FontStyle.Regular);
             }
         }
-
     }
 }

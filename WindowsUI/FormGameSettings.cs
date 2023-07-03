@@ -13,14 +13,10 @@ namespace WindowsUI
     public partial class FormGameSettings : Form
     {
         const int k_MaxNameLength = 10;
+
         public FormGameSettings()
         {
             InitializeComponent();
-        }
-
-        private void FormGameSettings_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void checkBoxPlayer2_CheckedChanged(object sender, EventArgs e)

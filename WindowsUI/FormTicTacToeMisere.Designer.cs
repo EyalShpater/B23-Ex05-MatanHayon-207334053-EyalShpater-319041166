@@ -20,6 +20,7 @@ namespace WindowsUI
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
